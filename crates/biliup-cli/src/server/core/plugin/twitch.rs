@@ -5,7 +5,7 @@ use crate::server::core::downloader::streamlink::{Platform, Streamlink, Streamli
 use crate::server::core::downloader::{DanmakuClient, DownloaderRuntime, DownloaderType};
 use crate::server::core::plugin::{DownloadBase, DownloadPlugin, StreamInfoExt, StreamStatus};
 use crate::server::errors::{AppError, AppResult};
-use crate::server::infrastructure::context::{Context, PluginContext};
+use crate::server::infrastructure::context::PluginContext;
 use crate::server::infrastructure::models::StreamerInfo;
 use async_trait::async_trait;
 use chrono::Utc;

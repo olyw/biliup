@@ -1,8 +1,7 @@
 use crate::server::common::download::DownloaderMessage;
-use crate::server::common::util::Recorder;
 use crate::server::core::plugin::{DownloadPlugin, StreamStatus};
 use crate::server::infrastructure::connection_pool::ConnectionPool;
-use crate::server::infrastructure::context::{Context, PluginContext, Stage, Worker, WorkerStatus};
+use crate::server::infrastructure::context::{PluginContext, Stage, Worker, WorkerStatus};
 use crate::server::infrastructure::models::StreamerInfo;
 use async_channel::Sender;
 use ormlite::Model;
@@ -87,7 +86,7 @@ impl Monitor {
             // 检查直播状态
             let mut downloader = plugin.create_downloader(&mut ctx);
             match downloader.check_stream().await {
-                Ok(StreamStatus::Live { mut stream_info }) => {
+                Ok(StreamStatus::Live { stream_info }) => {
                     let sql_no_id = &stream_info.streamer_info;
                     let insert = match StreamerInfo::builder()
                         .url(sql_no_id.url.clone())
