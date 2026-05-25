@@ -18,7 +18,7 @@ permissions:
   packages: write
 
 env:
-  IMAGE_NAME: ghcr.io/biliup/caution
+  IMAGE_NAME: ghcr.io/olyw/biliup
 
 jobs:
   # Run tests.
@@ -67,8 +67,6 @@ jobs:
         include:
           - platform: linux/amd64
             runner: ubuntu-24.04
-          - platform: linux/arm64
-            runner: ubuntu-24.04-arm
 
     steps:
       - name: Checkout
