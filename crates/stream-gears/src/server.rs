@@ -16,7 +16,7 @@ use biliup_cli::server::infrastructure::models::StreamerInfo;
 use biliup_cli::server::infrastructure::repositories;
 use biliup_cli::server::infrastructure::repositories::get_upload_config;
 use biliup_cli::server::infrastructure::service_register::ServiceRegister;
-use biliup_cli::uploader::{append, list, login, renew, show, upload_by_command, upload_by_config};
+use biliup_cli::uploader::{append, comments, list, login, renew, reply, show, upload_by_command, upload_by_config};
 use chrono::Utc;
 use clap::Parser;
 use error_stack::{Report, ResultExt};
