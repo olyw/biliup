@@ -500,6 +500,25 @@ pub(crate) async fn _main(args: &[String]) -> AppResult<()> {
             .await?
         }
         Commands::Show { vid } => show(cli.user_cookie, vid, cli.proxy.as_deref()).await?,
+        Commands::Comments { vid, sort, pn, ps } => {
+            comments(cli.user_cookie, vid, sort, pn, ps, cli.proxy.as_deref()).await?
+        }
+        Commands::Reply {
+            vid,
+            rpid,
+            message,
+            execute,
+        } => {
+            reply(
+                cli.user_cookie,
+                vid,
+                rpid,
+                message,
+                execute,
+                cli.proxy.as_deref(),
+            )
+            .await?
+        }
         Commands::DumpFlv { file_name } => generate_json(file_name)?,
         Commands::Download {
             url,
